@@ -7,12 +7,12 @@ console.log("Perfect-Guess🤔")
 let lower = 1;
 let upper = 20;
 let secret_number = Math.floor(1+(upper-lower)*(Math.random()));
-console.log(secret_number);
+// console.log(secret_number);
 
 // Accessing the  button and input box
 let user = document.querySelector("#userGuess");
 let checkBtn = document.querySelector("#check");
-
+let created_p_tag = document.querySelector("#createdp")
 // console.log(checkBtn);
 // console.log(user);
 
@@ -22,20 +22,23 @@ checkBtn.addEventListener("click",function(){
         alert("Your guess is missing");
     }else{
         let userGuess = user.value;
-        console.log(userGuess);
+        // console.log(userGuess);
         
         if(userGuess<secret_number){
-            console.log("You guess is too low.");
+            created_p_tag.innerText = "You guess is too low."
+            
         }else if(userGuess>secret_number){
-            console.log("Your guess is too high");
+            created_p_tag.innerText = "Your guess is too high";
         }else{
-            console.log(`You guessed my secret number: ${secret_number}`)
+            created_p_tag.innerText = `You guessed my secret number: ${secret_number} 🔁 \n Play Again ❗`;
             secret_number = Math.floor(1+(upper-lower)*(Math.random()));   
-            console.log(secret_number)
+            // console.log(secret_number)
         }
         user.value = ""
     }
 })
+
+
 
 
 
